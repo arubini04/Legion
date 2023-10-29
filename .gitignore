@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Output dir
+Build/
+Engine/.vs
+
+# VS Project
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
