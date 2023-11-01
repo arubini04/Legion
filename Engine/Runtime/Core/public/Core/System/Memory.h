@@ -32,8 +32,8 @@
 #ifndef LEGION_MEMORY_H
 #define LEGION_MEMORY_H
 
-#include "Legion/System/Export.h"
-#include "legion/System/Integer.h"
+#include "Core/Export.h"
+#include "Core/System/Integer.h"
 
 namespace Legion::System
 {
