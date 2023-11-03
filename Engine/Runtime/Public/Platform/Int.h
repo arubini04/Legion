@@ -70,26 +70,6 @@ namespace Legion
     using uint64 = unsigned long long;
 #endif
 
-#if defined(_M_AMD64) || defined(_M_X64) || defined(__x86_64__) || defined(__amd64__)
-    /// Architecture-dependet signed integer capable of holding a pointer.
-    using intptr = int64;
-    /// Architecture-dependet unsigned integer capable of holding a pointer.
-    using uintptr = uint64;
-    /// Architecture-dependet signed integer capable of holding a pointer.
-    using size = int64;
-    /// Architecture-dependet unsigned integer capable of holding a pointer.
-    using usize = uint64;
-#else
-    /// Architecture-dependet signed integer capable of holding a pointer.
-    using intptr = int32;
-    /// Architecture-dependet unsigned integer capable of holding a pointer.
-    using uintptr = uint32;
-    /// Architecture-dependet signed integer capable of holding a pointer.
-    using size = int32;
-    /// Architecture-dependet unsigned integer capable of holding a pointer.
-    using usize = uint32;
-#endif
-
     /// Min value for a variable of type `int8`.
     constexpr size INT8_MIN  = -128;
     /// Max value for a variable of type `int8`.

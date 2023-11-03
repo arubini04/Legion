@@ -1,6 +1,6 @@
-﻿/* ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ *
+/* ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ *
  * ┃ Copyright (c) 2023-present Angelo Rubini                                       ┃ *
- * ┃                                                                                ┃ *
+ * ┃ ────────────────────────────────────────────────────────────────────────────── ┃ *
  * ┃ Permission is hereby granted, free of charge, to any person obtaining a copy   ┃ *
  * ┃ of this software and associated documentation files (the "Software"), to deal  ┃ *
  * ┃ in the Software without restriction, including without limitation the rights   ┃ *
@@ -20,21 +20,16 @@
  * ┃ SOFTWARE.                                                                      ┃ *
  * ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ */
 
- // ╔═════════════════════════════════════════════════╗ //
- // ║ ██╗     ███████╗ ██████╗ ██╗ ██████╗ ███╗   ██╗ ║ //
- // ║ ██║     ██╔════╝██╔════╝ ██║██╔═══██╗████╗  ██║ ║ //
- // ║ ██║     █████╗  ██║  ███╗██║██║   ██║██╔██╗ ██║ ║ //
- // ║ ██║     ██╔══╝  ██║   ██║██║██║   ██║██║╚██╗██║ ║ //
- // ║ ███████╗███████╗╚██████╔╝██║╚██████╔╝██║ ╚████║ ║ //
- // ║ ╚══════╝╚══════╝ ╚═════╝ ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ║ //
- // ╚═════════════════════════════════════════════════╝ //
+#include <corecrt_malloc.h>
 
-#ifndef LEGION_INTEGRAL_H
-#define LEGION_INTEGRAL_H
-
-namespace Legion
-{
-
+void* Legion::System::Allocate(uint64 bytes, uint8 alignment) {
+    return _aligned_malloc(bytes, alignment);
 }
 
-#endif //! LEGION_INTEGRAL_H
+void* Legion::System::Realloc(void* ptr, uint64 bytes, uint8 alignment) {
+    return _aligned_realloc(ptr, bytes, alignment);
+}
+
+void Legion::System::Free(void* ptr) {
+    _aligned_free(ptr);
+}

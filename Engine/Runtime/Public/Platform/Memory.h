@@ -32,8 +32,8 @@
 #ifndef LEGION_MEMORY_H
 #define LEGION_MEMORY_H
 
-#include "Core/Export.h"
-#include "Core/System/Integer.h"
+#include "Platform/Export.h"
+#include "Platform/Int.h"
 
 namespace Legion::System
 {
@@ -43,7 +43,7 @@ namespace Legion::System
     /// \param alignment The alignment value, which must be an integer power of 2.
     ///
     /// \return A pointer to the memory block that was allocated or `NULL` if the operation failed.
-    LEGION_API void* Allocate(usize bytes, usize alignment);
+    LEGION_API void* Allocate(uint64 bytes, uint8 alignment);
 
     /// Changes the size of a memory block that was allocated.
     ///
@@ -57,7 +57,7 @@ namespace Legion::System
     ///         In the first case, the original block is freed; in the second, the original block is unchanged.
     ///         The return value points to a storage space that is suitably aligned for
     ///         storage of any type of object.
-    LEGION_API void* Realloc(void* ptr, usize bytes, usize alignment);
+    LEGION_API void* Realloc(void* ptr, uint64 bytes, uint8 alignment);
 
     /// Frees a block of memory that was allocated
     ///
