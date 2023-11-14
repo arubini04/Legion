@@ -16,10 +16,10 @@
 // by the compiler or build system.
 #if defined(_MSC_VER) && defined(LEGION_BUILD_DLL)
 #if defined(LEGION_EXPORT)
-#define LEGION_API __declspec(dllexport)
+#define LegionAPI __declspec(dllexport)
 #else
-#define LEGION_API __declspec(dllexport)
+#define LegionAPI __declspec(dllexport)
 #endif
 #else
-#define LEGION_API
+#define LegionAPI
 #endif

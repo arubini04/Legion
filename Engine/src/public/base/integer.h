@@ -12,7 +12,7 @@
 
 #pragma once
 
-namespace Legion
+namespace legion
 {
 #if defined(_MSC_VER)
     /// 8-bit signed integer.

@@ -12,10 +12,10 @@
 
 #pragma once
 
-#include <Legion/Base/Export.h>
-#include <Legion/Base/Int.h>
+#include "base/export.h"
+#include "base/integer.h"
 
-namespace Legion::Memory
+namespace legion::mem
 {
     /// Allocates memory on a specified alignment boundary.
     ///
@@ -23,7 +23,8 @@ namespace Legion::Memory
     /// \param alignment The alignment value, which must be an integer power of 2.
     ///
     /// \return A pointer to the memory block that was allocated or `NULL` if the operation failed.
-    LEGION_API void* Allocate(uint64 bytes, uint8 alignment);
+    LegionAPI void*
+    Allocate(uint64 bytes, uint8 alignment);
 
     /// Changes the size of a memory block that was allocated.
     ///
@@ -37,10 +38,12 @@ namespace Legion::Memory
     ///         In the first case, the original block is freed; in the second, the original block is unchanged.
     ///         The return value points to a storage space that is suitably aligned for
     ///         storage of any type of object.
-    LEGION_API void* Realloc(void* ptr, uint64 bytes, uint8 alignment);
+    LegionAPI void*
+    Realloc(void* ptr, uint64 bytes, uint8 alignment);
 
     /// Frees a block of memory that was allocated
     ///
     /// \param ptr A pointer to the memory block that was allocated.
-    LEGION_API void Free(void* ptr);
+    LegionAPI void
+    Free(void* ptr);
 }
